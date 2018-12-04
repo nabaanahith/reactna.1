@@ -1,22 +1,26 @@
 import React,{Component} from 'react';
-import { StyleSheet, Text, View,TextInput } from 'react-native';
+import { StyleSheet, Text, View,TextInput ,ScrollView} from 'react-native';
 import Items from './item'
 
 export default class  Search extends Component{
+
+
+    
+    
 render(){
+    const {news}=this.props;
+    const newslist=news.map((newsitem,i)=>(
+        <Items key={i} item={newsitem}/>
+    )
+
+    
+)
 return(
-<View style={{flex:1,padding:20,backgroundColor:'white'}}>
-<Items/>
-<Items/>
-<Items/>
-<Items/>
-<Items/>
-<Items/>
-<Items/>
 
+<ScrollView style={styles.liststyle}>
 
-</View>
-
+{newslist}
+</ScrollView>
 
 
 
@@ -30,3 +34,18 @@ return(
 
 
 }
+
+
+
+const styles = StyleSheet.create({
+
+liststyle:
+{
+    flex:1,
+    padding:0,
+    backgroundColor:'white'
+},
+
+
+
+})
